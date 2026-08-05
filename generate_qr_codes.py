@@ -21,9 +21,7 @@ HERE = Path(__file__).resolve().parent
 # Opens directly in Google Drive's video player.
 DEMO_VIDEO_URL = "https://drive.google.com/file/d/1vwK6EDCWHPQNqCMkmaF2zhuxJl4Q6nLp/view?usp=drive_link"
 
-REPO_URL = "https://github.com/DignaDavid04/Autonomous_Airport_Assistant_Robot-CarryBot"
-
-CONTACT_PAGE_URL = "https://dignadavid04.github.io/Autonomous_Airport_Assistant_Robot-CarryBot/Documentation/contact.html"
+CONTACT_PAGE_URL = "https://dignadavid04.github.io/Carrybot_MMAR2026_Contacts/contact.html"
 
 AFFILIATIONS = {
     1: "Dept. of Intelligent Interactive Systems",
