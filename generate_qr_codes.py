@@ -240,7 +240,6 @@ CSS = """
     display:flex; gap:clamp(12px,2.4vw,20px); align-items:flex-start;
     background:#fff; border:1px solid var(--line); border-radius:var(--radius);
     padding:clamp(12px,2.4vh,22px) clamp(12px,2.4vw,22px);
-    scroll-margin-top:16px;
   }
   .bio-card .avatar-wrap{
     width:clamp(52px,10vw,88px); height:clamp(52px,10vw,88px); flex:none;
@@ -300,11 +299,15 @@ def render_icon_links(m: dict) -> str:
     return '\n          <div class="icon-row">' + "".join(icons) + "</div>"
 
 
+def about_page_filename(m: dict) -> str:
+    return f"about-{m['slug']}.html"
+
+
 def render_member(m: dict) -> str:
     dept = AFFILIATIONS[m["affil"]]
     title_prefix = f"{m['title']} " if m.get("title") else ""
     return f"""        <div class="member">
-          <a class="person-link" href="about.html#{m['slug']}">
+          <a class="person-link" href="{about_page_filename(m)}">
             <div class="avatar-wrap">
               <img src="photos/{m['photo']}" alt="{m['name']}"
                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -313,14 +316,14 @@ def render_member(m: dict) -> str:
             <h4>{title_prefix}{m['name']}<sup>{m['affil']}</sup></h4>
           </a>
           <p class="role">{dept}</p>
-          <a class="email mono" href="mailto:{m['email']}">{m['email']}</a>{render_icon_links(m)}
+          <a class="email mono" href="mailto:{m['email']}">{m['email']}</a>
         </div>"""
 
 
 def render_bio_card(m: dict) -> str:
     dept = AFFILIATIONS[m["affil"]]
     title_prefix = f"{m['title']} " if m.get("title") else ""
-    return f"""        <div class="bio-card" id="{m['slug']}">
+    return f"""        <div class="bio-card">
           <div class="avatar-wrap">
             <img src="photos/{m['photo']}" alt="{m['name']}"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -397,20 +400,18 @@ def render_html() -> str:
     )
 
 
-def render_about_html() -> str:
-    bios_html = "\n".join(render_bio_card(m) for m in TEAM)
-
+def render_about_page(m: dict) -> str:
     main_html = f"""  <main class="about">
     <a class="back-link" href="contact.html">&larr; Back to Contacts</a>
-    <p class="section-label">About the Team</p>
+    <p class="section-label">About</p>
     <div class="bio-list">
-{bios_html}
+{render_bio_card(m)}
     </div>
   </main>"""
 
     return page_shell(
-        "CarryBot — About the Team",
-        "Team biographies for the CarryBot project, presented at MMAR 2026.",
+        f"CarryBot — {m['name']}",
+        f"Biography and contact details for {m['name']}, CarryBot project team.",
         main_html,
     )
 
@@ -420,9 +421,11 @@ def write_contact_html():
     print("  wrote contact.html")
 
 
-def write_about_html():
-    (HERE / "about.html").write_text(render_about_html(), encoding="utf-8")
-    print("  wrote about.html")
+def write_about_pages():
+    for m in TEAM:
+        filename = about_page_filename(m)
+        (HERE / filename).write_text(render_about_page(m), encoding="utf-8")
+        print(f"  wrote {filename}")
 
 
 def make_qr(data, filename):
@@ -436,7 +439,7 @@ def main():
 
     print("Generating contact page...")
     write_contact_html()
-    write_about_html()
+    write_about_pages()
 
     print("Generating QR codes...")
     make_qr(DEMO_VIDEO_URL, "demo_qr.png")
