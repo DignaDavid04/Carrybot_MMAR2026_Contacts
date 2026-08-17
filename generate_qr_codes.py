@@ -83,19 +83,19 @@ TEAM = [
         "name": "Dilbrin Mustafa",
         "affil": 2,
         "email": "s201872@student.pg.edu.pl",
-        "photo": "dilbrin_mustafa.png",
+        "photo": "dilbrin_mustafa.jpeg",
         "slug": "dilbrin-mustafa",
         "linkedin": "https://linkedin.com/in/dilbrin-azad-767437294",
         "portfolio": "https://dilbrin-mustafa.github.io",
         "bio": (
             "Dilbrin Mustafa holds a Bachelor's degree in Information Security from "
-            "Duhok Polytechnic University (2018–2022). He works as a Full Stack "
+            "Duhok Polytechnic University. He works as a Full Stack "
             "Developer at Lelav Technology, building web applications across both the "
             "frontend and backend. He is currently pursuing a Master's degree in "
             "Automatic Control, Cybernetics and Robotics at Gdańsk University of "
             "Technology, where he focuses on bridging software development with "
-            "intelligent automation. His interests include full-stack web development, "
-            "Python programming, and control systems."
+            "intelligent automation. His research interests include full-stack web "
+            "development, Python programming, and control systems."
         ),
     },
     {
@@ -107,15 +107,14 @@ TEAM = [
         "linkedin": "https://linkedin.com/in/zhangirkhan-baurzhanov",
         "bio": (
             "Zhangirkhan Baurzhanov holds a Bachelor's degree in Metrology Engineering "
-            "from West Kazakhstan Agrarian Technical University named after Zhangir Khan "
-            "(2020–2024). He worked as a Metrology Engineer at Munai Gas Engineering "
-            "LLP, verifying and calibrating measuring instruments to industry standards "
-            "and supporting clients on-site through a mobile laboratory. He is currently "
-            "completing a Master's degree in Automatic Control, Cybernetics and Robotics "
-            "at Gdańsk University of Technology (expected September 2026), with a "
-            "growing focus on automation, control systems, and machine vision. His "
-            "standards-driven background in metrology now shapes his approach to "
-            "automation and quality-control problems."
+            "from West Kazakhstan Agrarian Technical University named after Zhangir "
+            "Khan. He is currently completing a Master's degree in Automatic Control, "
+            "Cybernetics and Robotics at Gdańsk University of Technology. His "
+            "professional experience includes working as a Metrology Engineer at Munai "
+            "Gas Engineering LLP, where he verified and calibrated measuring instruments "
+            "to industry standards and supported clients on-site through a mobile "
+            "laboratory. His research interests include automation, control systems, "
+            "robotics, machine vision, and intelligent measurement systems."
         ),
     },
 ]
