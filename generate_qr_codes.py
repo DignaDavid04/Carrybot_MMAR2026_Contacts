@@ -105,6 +105,7 @@ TEAM = [
         "photo": "zhangirkhan_baurzhanov.png",
         "slug": "zhangirkhan-baurzhanov",
         "linkedin": "https://linkedin.com/in/zhangirkhan-baurzhanov",
+        "portfolio": "https://zbayrzhanov77.github.io/portfolio/",
         "bio": (
             "Zhangirkhan Baurzhanov holds a Bachelor's degree in Metrology Engineering "
             "from West Kazakhstan Agrarian Technical University named after Zhangir "
